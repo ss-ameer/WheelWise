@@ -1,0 +1,6 @@
+@import './variables';
+
+@function color($color-name) {
+    @return map-get($active-theme, $color-name);
+}
+

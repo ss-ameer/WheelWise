@@ -1,0 +1,31 @@
+header {
+  background-color: #ffffff;
+}
+header nav {
+  margin: 20px 0;
+  background-color: #f5f5f5;
+}
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+header nav ul li {
+  display: inline;
+  margin: 10px;
+}
+header nav ul li:hover {
+  background: #00cc00;
+}
+header nav ul li a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ff6600;
+}/*# sourceMappingURL=style.css.map */

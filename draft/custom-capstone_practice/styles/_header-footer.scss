@@ -1,0 +1,28 @@
+@import './functions';
+
+header {
+    background-color: color(background);
+    nav {
+        margin: 20px 0;
+        background-color: color(secondary);
+        ul {
+            list-style-type: none;
+            padding: 0;
+            li {
+                display: inline;
+                margin: 10px;
+                &:hover {
+                    background: color(cta);
+                }
+                a {
+                    // color: red;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+
+
+
