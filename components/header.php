@@ -22,7 +22,19 @@ define('NAV_ITEMS', [
 <nav>
     <ul>
         <?php foreach (NAV_ITEMS as $nav_type => $nav_item): ?>
-            <?php if ($nav_type === 'default' || ($nav_type === 'logged_in' && sql_sessionValidityCheck($sql_connection, $tableName)) || ($nav_type === 'logged_out' && !sql_sessionValidityCheck($sql_connection, $tableName))): ?>
+            <?php if ($nav_type === 'default'): ?>
+                <?php foreach ($nav_item as $nav_name => $nav_link): ?>
+                    <li>
+                        <a href="<?= $nav_link; ?>" id="<?= $nav_name ?>"><?= ucfirst($nav_name); ?></a>
+                    </li>
+                <?php endforeach; ?>
+            <?php elseif ($nav_type === 'logged_in' && isset($_SESSION['user_id'])): ?>
+                <?php foreach ($nav_item as $nav_name => $nav_link): ?>
+                    <li>
+                        <a href="<?= $nav_link; ?>" id="<?= $nav_name ?>"><?= ucfirst($nav_name); ?></a>
+                    </li>
+                <?php endforeach; ?>
+            <?php elseif ($nav_type === 'logged_out' && !isset($_SESSION['user_id'])): ?>
                 <?php foreach ($nav_item as $nav_name => $nav_link): ?>
                     <li>
                         <a href="<?= $nav_link; ?>" id="<?= $nav_name ?>"><?= ucfirst($nav_name); ?></a>
@@ -33,6 +45,11 @@ define('NAV_ITEMS', [
     </ul>
 </nav>
 
-
+<?php 
+  if (sql_sessionValidityCheck($sql_connection, $tableName)) 
+  {
+    header('Location: ' . addPage('handle_logout'));
+  } 
+?>
 
 <!-- /header.php -->

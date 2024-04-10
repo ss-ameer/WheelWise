@@ -179,7 +179,7 @@
         function sql_loginUser( $connection, $tablename, $userid, $password) 
         {
             
-            $idCheck = sql_userIdCheck($connection,  $tablename, $userid, $userid, 'array');
+            $idCheck = sql_userIdCheck($connection, $tablename, $userid, $userid, 'array');
 
             if ($idCheck == false) {
                 
