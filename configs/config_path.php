@@ -2,10 +2,10 @@
 <?php
 
     // base path
-    define('BASE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/ameer/capstone_project/');
+    define('BASE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/ameer/WheelWise/');
 
     //base URL
-    define('BASE_URL', 'http://localhost/ameer/capstone_project/');
+    define('BASE_URL', 'http://localhost/ameer/WheelWise/');
 
     // prefixes
     define('DIR_PREFIX', 

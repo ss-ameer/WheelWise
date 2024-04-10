@@ -27,15 +27,9 @@
         };
 
         // adds a specified configuration
-        function addConfig($config_name, $returntype = 'return') 
+        function addConfig($config_name) 
         {
-            if ($returnType = 'echo') {
-                echo CONFIGS_DIR[$config_name];
-            } else { 
-                $dir = CONFIGS_DIR[$config_name];
-                return $dir;
-            }
-
+            return CONFIGS_DIR[$config_name];
         }
 
         function addPage($page_name) 
@@ -208,18 +202,16 @@
             }
         }
 
-        function sql_sessionValidityCheck($connection, $tablename, $userid, $password) {
-            $idCheck = sql_userIdCheck($connection, $tablename, $userid, $userid, 'array');
-          
+        function sql_sessionValidityCheck($connection, $tablename) {
             if (isset($_SESSION['user_id'])) {
-              if ($_SESSION['user_id'] === $idCheck["user_id"] && password_verify($password, $_SESSION['user_password'])) {
-                return true;
-              }
-            } else { return false; }
-          };
-          
-
-
+                $idCheck = sql_userIdCheck($connection, $tablename, $_SESSION['user_name'], $_SESSION['user_name'], 'array');
+                if ($idCheck && $_SESSION['user_id'] === $idCheck["user_id"] && password_verify($_SESSION['user_password'], $idCheck['user_password'])) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
 
         function inputErrorMessage ($errormessage) 
         {

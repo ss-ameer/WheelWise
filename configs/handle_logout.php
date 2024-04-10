@@ -1,7 +1,7 @@
 <!-- handle_logout.php -->
 <?php
 
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/ameer/capstone_project/configs/config_main.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/ameer/WheelWise/configs/config_main.php';
 
     session_start();
     session_unset();
