@@ -3,7 +3,7 @@
 
     include_once $_SERVER['DOCUMENT_ROOT'] . "/ameer/capstone_project/configs/config_main.php";
 
-    addStyle('main', '../')
+    linkStyle('main', '../')
 
 ?>
 
@@ -22,11 +22,23 @@
 
     <main>
 
-        <form action='<?php addConfig('handle_login') ?>' method='POST'>
-            <input name='login_name' type='text' placeholder='Username/Email'/>
+        <form action='../configs/handle_login.php' name='login' method='POST'>
+            <input type='text' name='login_uid' placeholder='Username/Email'/>
             <input type='password' name='login_password' placeholder='Password'>
-            <input type='submit' name='login_submit' value='submit'>
+            <input type='submit' name='login_submit' value='log in'>
         </form>
+        <?php 
+ 
+         if (isset($_GET['error'])) {
+            if ($_GET['error'] !== 'none') {
+               $message = inputErrorMessage($_GET['error']);
+            }
+            
+            echo (ucfirst($message));
+            
+         }
+
+      ?>
 
     </main>
 

@@ -12,7 +12,7 @@
     [
 
         'components' => BASE_PATH . 'components/',
-        'configs' => BASE_PATH . 'configs/',
+        'configs' => BASE_URL . 'configs/',
         'pages' => BASE_URL . 'pages/',
         'styles' => 'styles/'
 
@@ -24,7 +24,10 @@
 
         'home' => BASE_URL . '/index.php',
         'login' => DIR_PREFIX['pages'] . 'login.php',
-        'signup' => DIR_PREFIX['pages'] . 'signup.php'
+        'signup' => DIR_PREFIX['pages'] . 'signup.php',
+        'profile' => DIR_PREFIX['pages'] . 'profile.php',
+        'handle_logout' => DIR_PREFIX['pages'] . 'handle_logout.php'
+        
 
     ]);
 
@@ -32,8 +35,11 @@
     define('CONFIGS_DIR', 
     [
 
-        'handle_login' => "{DIR_PREFIX['configs']}handle_login.php",
-        'handle_signup' => "{DIR_PREFIX['configs']}handle_signup.php"
+        'handle_login' => DIR_PREFIX['configs'] . 'handle_login.php',
+        'handle_signup' => DIR_PREFIX['configs'] . 'handle_signup.php',
+        'handle_logout' => DIR_PREFIX['configs'] . 'handle_logout.php',
+        'config_db' => DIR_PREFIX['configs'] . 'config_db.php',
+        'config_func' => DIR_PREFIX['configs'] . 'config_func.php',
 
     ]);
 

@@ -1,23 +1,27 @@
-<?php 
+<!-- handle_login.php -->
+<?php
+
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/ameer/capstone_project/configs/config_main.php';
+
+    $tableName = 'users';
 
     if (isset($_POST['login_submit'])) {
-        echo ('Working');
 
         $name = $_POST['login_uid'];
         $password = $_POST['login_password'];
 
+        $result = inputCheckLogin($sql_connection, $name, $password);
+        
+        if ($result !== 'none') {
+            header('location: '. addPage('login') . "?error=$result");
+        }
 
-        if (emptyInputSignup() !== false) {
+        else if ($result === 'none') {
+            sql_loginUser($sql_connection, $tableName, $name, $password);
 
-        };
-
-        if (wrongPassword() !== false) {
-
+            header('location: '. addPage('home'));
         }
     }
 
-    else {
-        header('location: ../pages/login.php');
-    }
-
 ?>
+<!-- /handle_login.php -->

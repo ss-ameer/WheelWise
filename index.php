@@ -1,9 +1,9 @@
 <!-- index.php -->
 <?php
 
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/ameer/capstone_project/configs/config_main.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/ameer/capstone_project/configs/config_main.php';
 
-    addStyle('main');
+    linkStyle('main');
 
 ?>
 
@@ -21,7 +21,13 @@
     </header>
 
     <main>
-
+        <?php 
+            if (isset($_SESSION['user_id'])) {
+                echo "it is set!";
+            } else if (!isset($_SESSION['user_id']) ) {
+                echo "it is not set!";
+            } else { echo "unknown error";}
+        ?>
     </main>
 
     <footer>

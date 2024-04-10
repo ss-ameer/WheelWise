@@ -1,63 +1,24 @@
 <!-- config_main.php -->
 <?php 
 
-    include_once 'config_path.php';
+  require_once 'config_db.php';
+  require_once 'config_path.php';
+  require_once 'config_func.php';
+  require_once 'config_session.php';
 
-    define('MAIN_TITLE', 'Wheelwise');
-    define('PAGES', [
-        'home',
-        'login',
-        'signup'
-    ]);
+  // CONSTANTS:
 
-    // adds a specified style
-    function addStyle($style_name, $extension = '') {
+  define('MAIN_TITLE', 'Wheelwise');
 
-      $dir = $extension . STYLES_DIR[$style_name];
-      echo "<link rel=\"stylesheet\" href=\"{$dir}\">"; 
-    
-    };
-
-    // adds a specified component
-    function addComponent($component_name, $mode = 0) 
-    {
-
-        $dir = COMPONENTS_DIR[$component_name];
-        
-        if (file_exists($dir)) {
-
-          switch ($mode) {
-            case 0:
-              include($dir);
-              break;
-            case 1:
-              include_once($dir);
-              break;
-            default:
-              echo 'ERROR: there was a problem with the code.';
-          }
-
-        } else {
-          echo "ERROR: File '$component_name.php' was not found in directory.";
-        }
-
-    };
-
-    function addConfig($config_name) {
-
-      return CONFIGS_DIR[$config_name];
-    
-    };
-
-    function addPage($page_name) {
-
-       return PAGES_DIR[$page_name];
-
-    }
-
-    function debug() {
-      echo "SUCCESS";
-    };
+  define('ERROR_MESSAGES', [
+    'emptyfield' => 'Please don\'t leave any fields empty.',
+    'invalidusername' => 'Username can only contain letters and numbers.',
+    'invalidemail' => 'Please enter a valid email address.',
+    'wrongpassword' => 'You have entered an incorrect password.',
+    'wronguid' => 'You have entered an incorrect username or email address.',
+    'passworddoesnotmatch' => 'Passwords do not match.',
+    'useridexists' => 'Username or email is already in use.',
+  ]);
 
 ?> 
 <!-- /config_main.php -->
