@@ -12,8 +12,10 @@
         $nameFirst = $_POST['signup_name-first'];
         $nameLast = $_POST['signup_name-last'];
         $nameMiddle = $_POST['signup_name-middle'];
-        $gender = $_POST['signup_gender'];
+        $province = $_POST['signup_address-province'];
+        $municipality = $_POST['signup_address-municipality'];
         $dateOfBirth = $_POST['signup_dateOfBirth'];
+        $gender = $_POST['signup_gender'];
         $email = $_POST["signup_email"];
         $password = $_POST["signup_password"];
         $passwordRepeat = $_POST["signup_password-repeat"];
@@ -41,16 +43,18 @@
         else if ( $result === 'none')
         {    
             sql_createUser(
-            $sql_connection,
-            $tableName,
-            $nameUser, 
-            $email, 
-            $nameFirst, 
-            $nameLast, 
-            $nameMiddle,
-            $dateOfBirth,
-            $gender, 
-            $password);
+                $sql_connection,
+                 $tableName,
+                  $nameUser,
+                   $email,
+                    $nameFirst,
+                     $nameLast,
+                      $nameMiddle,
+                       $province,
+                        $municipality,
+                         $dateOfBirth,
+                          $gender,
+                           $password);
 
             header("location: " . addPage('signup') . "?error=$result");
             exit();

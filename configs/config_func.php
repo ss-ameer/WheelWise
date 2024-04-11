@@ -147,18 +147,31 @@
         }
 
         function sql_createUser(
-            $connection, 
-            $tablename,
-            $username, 
-            $email, 
-            $firstname, 
-            $lastname, 
-            $middlename, 
-            $dateofbirth,
-            $gender, 
-            $password) 
+            $connection,
+             $tablename,
+              $username,
+               $email,
+                $firstname,
+                 $lastname,
+                  $middlename,
+                   $province,
+                    $municipality,
+                     $dateofbirth,
+                      $gender,
+                       $password) 
+
             {
-                $sql = "INSERT INTO $tablename (user_name, user_email,	user_name_first, user_name_last, user_name_middle,user_date_of_birth, user_gender, user_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO $tablename (
+                    user_name, user_email,
+                     user_name_first,
+                      user_name_last,
+                       user_name_middle,
+                        user_address_province,
+                         user_address_municipality,
+                          user_date_of_birth,
+                           user_gender,
+                            user_password)
+                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                 $stmt = mysqli_stmt_init($connection);
 
@@ -168,7 +181,17 @@
 
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-                mysqli_stmt_bind_param($stmt, "ssssssss", $username, $email, $firstname, $lastname, $middlename, $dateofbirth, $gender, $hashedPassword);
+                mysqli_stmt_bind_param($stmt, "ssssssssss",
+                 $username,
+                  $email,
+                   $firstname,
+                    $lastname,
+                     $middlename,
+                      $province,
+                       $municipality,
+                         $dateofbirth,
+                          $gender,
+                           $hashedPassword);
 
                 mysqli_stmt_execute($stmt);
 

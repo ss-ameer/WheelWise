@@ -8,6 +8,8 @@
         $_SESSION["user_nameFirst"] = $array['user_name_first'];
         $_SESSION["user_nameLast"] = $array['user_name_last'];
         $_SESSION["user_nameMiddle"] = $array['user_name_middle'];
+        $_SESSION["user_addressProvince"] = $array['user_address_province'];
+        $_SESSION["user_addressMunicipality"] = $array['user_address_municipality'];
         $_SESSION["user_dateOfBirth"] = $array['user_date_of_birth'];
         $_SESSION["user_gender"] = $array['user_gender'];
         $_SESSION["user_password"] = $array['user_password'];
@@ -32,6 +34,12 @@
             case 'middle':
                 $info = $_SESSION["user_nameMiddle"];
                 break;
+            case 'province':
+                $info = $_SESSION["user_addressProvince"];
+                break;
+            case 'municipality':
+                $info = $_SESSION["user_addressMunicipality"];
+                break;
             case 'dob':
                 $info = $_SESSION["user_dateOfBirth"];
                 break;
@@ -48,6 +56,10 @@
                 break;
             case 'full':
                 $info = $_SESSION["user_nameLast"] . ', ' . $_SESSION["user_nameFirst"] . ', ' . $info = $_SESSION["user_nameMiddle"];
+                break;
+
+            default:
+                $info = 'Unknown info: ' . $infoname;
                 break;
         }
 
