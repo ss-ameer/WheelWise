@@ -40,7 +40,11 @@
                 break;
             
             case 'age':
-                $info = $_SESSION["user_dateOfBirth"];
+                $birthDate = explode("-", $_SESSION["user_dateOfBirth"]);
+                $birthYear = (int)$birthDate[0];
+                $today = new DateTime();
+                $currentYear = $today->format('Y');
+                $info = $currentYear - $birthYear;
                 break;
             case 'full':
                 $info = $_SESSION["user_nameLast"] . ', ' . $_SESSION["user_nameFirst"] . ', ' . $info = $_SESSION["user_nameMiddle"];
