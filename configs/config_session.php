@@ -12,5 +12,43 @@
         $_SESSION["user_gender"] = $array['user_gender'];
         $_SESSION["user_password"] = $array['user_password'];
     }
+
+    function session_getInfo($infoname) {
+
+        $info = '';
+        switch ($infoname) {
+            case 'id':
+                $info = $_SESSION["user_id"];
+                break;
+            case 'name':
+                $info = $_SESSION["user_name"];
+                break;
+            case 'first':
+                $info = $_SESSION["user_nameFirst"];
+                break;
+            case 'last':
+                $info = $_SESSION["user_nameLast"];
+                break;
+            case 'middle':
+                $info = $_SESSION["user_nameMiddle"];
+                break;
+            case 'dob':
+                $info = $_SESSION["user_dateOfBirth"];
+                break;
+            case 'gender':
+                $info = $_SESSION["user_gender"];
+                break;
+            
+            case 'age':
+                $info = $_SESSION["user_dateOfBirth"];
+                break;
+            case 'full':
+                $info = $_SESSION["user_nameLast"] . ', ' . $_SESSION["user_nameFirst"] . ', ' . $info = $_SESSION["user_nameMiddle"];
+                break;
+        }
+
+        return $info;
+
+    }
 ?>
 <!-- /config_session.php -->
