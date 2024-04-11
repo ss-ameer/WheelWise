@@ -23,12 +23,13 @@
                 <li><?= session_getInfo('name') ?></li>
                 <li><?= session_getInfo('full') ?></li>
                 <li><?= session_getInfo('age') ?></li>
+                <li><?= session_getInfo('province') ?></li>
                 <li><?= session_getInfo('municipality') ?></li>
             </ul>
         </section>
     </main>
     <footer>
-
+        
     </footer>
     
 </body>

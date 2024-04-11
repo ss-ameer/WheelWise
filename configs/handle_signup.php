@@ -12,8 +12,8 @@
         $nameFirst = $_POST['signup_name-first'];
         $nameLast = $_POST['signup_name-last'];
         $nameMiddle = $_POST['signup_name-middle'];
-        $province = $_POST['signup_address-province'];
-        $municipality = $_POST['signup_address-municipality'];
+        $addressProvince = $_POST['signup_address-province'];
+        $addressMunicipality = $_POST['signup_address-municipality'];
         $dateOfBirth = $_POST['signup_dateOfBirth'];
         $gender = $_POST['signup_gender'];
         $email = $_POST["signup_email"];
@@ -27,6 +27,8 @@
             $nameFirst, 
             $nameLast, 
             $nameMiddle,
+            $addressProvince,
+            $addressMunicipality,
             $dateOfBirth,
             $gender, 
             $password, 
@@ -50,8 +52,8 @@
                     $nameFirst,
                      $nameLast,
                       $nameMiddle,
-                       $province,
-                        $municipality,
+                       $addressProvince,
+                        $addressMunicipality,
                          $dateOfBirth,
                           $gender,
                            $password);
