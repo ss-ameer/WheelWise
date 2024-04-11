@@ -26,9 +26,8 @@
         'login' => DIR_PREFIX['pages'] . 'login.php',
         'signup' => DIR_PREFIX['pages'] . 'signup.php',
         'profile' => DIR_PREFIX['pages'] . 'profile.php',
-        'handle_logout' => DIR_PREFIX['pages'] . 'handle_logout.php'
+        'contact_us' => DIR_PREFIX['pages'] . 'contact_us.php'
         
-
     ]);
 
     // configuration directories
