@@ -224,5 +224,15 @@
               }
         }
 
+        function getErrorMessage ($error) {
+            if ($error !== 'none') {
+                $message = inputErrorMessage($error);
+
+            } else if ($error === 'none') {
+                $message = 'you are now signed up!'; }
+
+             return $message;
+        }
+
     ?>
     <!-- /config_func.php -->
