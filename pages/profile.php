@@ -2,7 +2,6 @@
 <?php
 
     require_once $_SERVER['DOCUMENT_ROOT'] . '/ameer/WheelWise/configs/config_main.php';
-    addComponent('header');
 
 ?>
 
@@ -15,7 +14,7 @@
 </head>
 <body>
     <header>
-
+        <?php addComponent('header') ?>
     </header>
     <main>
         <section>
@@ -31,7 +30,6 @@
     <footer>
         
     </footer>
-    
 </body>
 </html>
 <!-- profile.php -->
