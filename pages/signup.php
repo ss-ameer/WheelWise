@@ -15,7 +15,6 @@
    <title>Signup</title>
  </head>
  <body>
-   
    <header>
       <?php addComponent('header') ?>
    </header>
@@ -66,7 +65,6 @@
    <footer>
       <?php addComponent('footer') ?>
    </footer>
-
  </body>
  </html>
  <!-- /signup.php -->
