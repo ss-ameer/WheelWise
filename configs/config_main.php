@@ -1,24 +1,23 @@
 <!-- config_main.php -->
-<?php 
+<?php
 
   require_once 'config_db.php';
   require_once 'config_path.php';
   require_once 'config_func.php';
   require_once 'config_session.php';
-
-  // CONSTANTS:
-
+  require_once 'config_login.php';
+  
   define('MAIN_TITLE', 'Wheelwise');
-
-  define('ERROR_MESSAGES', [
+  define('ERROR_MESSAGES', 
+  [
     'emptyfield' => 'Please don\'t leave any fields empty.',
     'invalidusername' => 'Username can only contain letters and numbers.',
     'invalidemail' => 'Please enter a valid email address.',
     'wrongpassword' => 'You have entered an incorrect password.',
     'wronguid' => 'You have entered an incorrect username or email address.',
     'passworddoesnotmatch' => 'Passwords do not match.',
-    'useridexists' => 'Username or email is already in use.',
+    'useridexists' => 'Username or email is already in use.'
   ]);
 
-?> 
+?>
 <!-- /config_main.php -->

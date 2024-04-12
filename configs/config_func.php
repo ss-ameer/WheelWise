@@ -1,152 +1,96 @@
-    <!-- config_func.php -->
-    <?php
+<!-- config_func.php -->
+<?php
 
-        // adds a specified component
-        function addComponent($component_name, $mode = 0) 
-        {
-            $dir = COMPONENTS_DIR[$component_name];
-            
-            if (file_exists($dir)) {
-
-                switch ($mode) {
-                case 0:
-                    include($dir);
-                    break;
-
-                case 1:
-                    include_once($dir);
-                    break;
-
-                default:
-                    echo 'ERROR: there was a problem with the code.';
-                }
-
-            } else {
-                echo "ERROR: File '$component_name.php' was not found in directory.";
-            }
-        };
-
-        // adds a specified configuration
-        function addConfig($config_name) 
-        {
-            return CONFIGS_DIR[$config_name];
-        }
-
-        function addPage($page_name) 
-        {
-            return PAGES_DIR[$page_name];
-        }
+    // adds a specified component
+    function addComponent($component_name, $mode = 0) {
+        $dir = COMPONENTS_DIR[$component_name];
         
-        // adds a specified style
-        function linkStyle($style_name, $extension = '') 
-        {
-            $dir = $extension . STYLES_DIR[$style_name];
-            echo "<link rel=\"stylesheet\" href=\"{$dir}\">"; 
-        };
-        
-        function debug($result='') 
-        {
-            switch ($result) {
+        if (file_exists($dir)) {
+            switch ($mode) {
             case 0:
-                return 'successful';
-            
-            case 1:
-                return 'failed';
-
-            default:
+                include($dir);
                 break;
-            }   
-        };
+            case 1:
+                include_once($dir);
+                break;
+            default:
+                echo 'ERROR: there was a problem with the code.'; }
+        } else { echo "ERROR: File '$component_name.php' was not found in directory."; }
+    }
 
-        // checks the input data in the signup page
-        function inputCheckSignUp( 
-            $connection,
-             $username,
-              $email,
-               $firstname,
-                $lastname,
-                 $middlename,
-                  $province,
-                   $municipality,
-                    $dateofbirth,
-                     $gender,
-                      $password,
-                       $passwordrepeat)
-        
-        {
+    // adds a specified configuration
+    function addConfig($config_name) {
+        return CONFIGS_DIR[$config_name];
+    }
 
-            $errorType = 'none';
+    function addPage($page_name) {
+        return PAGES_DIR[$page_name];
+    }
 
-            if(
-                empty($username) || 
-                empty($email) || 
-                empty($firstname) || 
-                empty($lastname) || 
-                empty($middlename) ||
-                empty($province) ||
-                empty($municipality) || 
-                empty($dateofbirth) || 
-                empty($gender) || 
-                empty($password) || 
-                empty($passwordrepeat)) 
-            {
-                $errorType = 'emptyfield';
-            }
+    // adds a specified style
+    function linkStyle($style_name, $extension = '') {
+        $dir = $extension . STYLES_DIR[$style_name];
+        echo "<link rel=\"stylesheet\" href=\"{$dir}\">"; 
+    };
 
-            else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-                $errorType = 'invalidusername';
-            }
+    function debug($result='') {
+        switch ($result) {
+        case 0:
+            return 'successful';        
+        case 1:
+            return 'failed';
+        default:
+            break; }
+    }
 
-            else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $errorType = 'invalidemail';
-            }
+    // checks the input data in the signup page
+    function inputCheckSignUp( $connection, $username, $email, $firstname, $lastname, $middlename, $province, $municipality, $dateofbirth, $gender, $password, $passwordrepeat) {
 
-            else if ($password !== $passwordrepeat) {
-                $errorType = 'passworddoesnotmatch';
-            }
+        $errorType = 'none';
 
-            else if (sql_userIdCheck($connection, 'users', $username, $email) === false) {
-                $errorType = 'useridexists';
-            }
+        if( empty($username) || 
+            empty($email) || 
+            empty($firstname) || 
+            empty($lastname) || 
+            empty($middlename) ||
+            empty($province) ||
+            empty($municipality) || 
+            empty($dateofbirth) || 
+            empty($gender) || 
+            empty($password) || 
+            empty($passwordrepeat)) {
+            $errorType = 'emptyfield'; }
 
-            return $errorType;
-        }
+        else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+            $errorType = 'invalidusername'; }
 
-        function inputCheckLogin(
-            $connection,
-            $username,
-            $password)
-        {
-            $errorType = 'none';
+        else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errorType = 'invalidemail'; }
 
-            if(empty($username) || empty($password)) {
-                $errorType = 'emptyfield';
-            }
+        else if ($password !== $passwordrepeat) {
+            $errorType = 'passworddoesnotmatch'; }
 
-            return $errorType;
-        }
-        
+        else if (sql_userIdCheck($connection, 'users', $username, $email) === false) {
+            $errorType = 'useridexists'; }
 
-        function inputErrorMessage ($errormessage) 
-        {
-            
-            if (array_key_exists($errormessage, ERROR_MESSAGES)) {
-                    return ERROR_MESSAGES[$errormessage];
-                }
-            else {
-                return "An unknown error occurred: $errormessage";
-              }
-        }
+        return $errorType;
+    }
 
-        function getErrorMessage ($error) {
-            if ($error !== 'none') {
-                $message = inputErrorMessage($error);
+    function inputErrorMessage ($errormessage) {
+        if (array_key_exists($errormessage, ERROR_MESSAGES)) {
+                return ERROR_MESSAGES[$errormessage]; }
+        else { return "An unknown error occurred: $errormessage"; }
+    }
 
-            } else if ($error === 'none') {
-                $message = 'you are now signed up!'; }
+    // used to retrieve an error message based on the error type.
+    function getErrorMessage ($error) {
+        if ($error !== 'none') {
+            $message = inputErrorMessage($error); } 
+        else if ($error === 'none') {
+            $message = 'you are now signed up!'; }
 
-             return $message;
-        }
+            return $message;
+    }
 
-    ?>
-    <!-- /config_func.php -->
+?>
+<!-- /config_func.php -->

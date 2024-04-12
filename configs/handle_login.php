@@ -3,24 +3,20 @@
 
     require_once $_SERVER['DOCUMENT_ROOT'] . '/ameer/WheelWise/configs/config_main.php';
 
-    $tableName = 'users';
-
     if (isset($_POST['login_submit'])) {
-
         $name = $_POST['login_uid'];
         $password = $_POST['login_password'];
-
-        $result = inputCheckLogin($sql_connection, $name, $password);
+        $result = login_inputCheck($name, $password);
+        $table = 'users';
         
         if ($result !== 'none') {
-            header('location: '. addPage('login') . "?error=$result");
-        }
+            header('location: '. addPage('login') . "?error=$result"); }
 
         else if ($result === 'none') {
-            sql_loginUser($sql_connection, $tableName, $name, $password);
+            sql_loginUser($sql_connection, $table, $name, $password);
+            header('location: '. addPage('home')); }
 
-            header('location: '. addPage('home'));
-        }
+        else { header('location: '. addPage('login') . "?error=$result"); }
     }
 
 ?>
