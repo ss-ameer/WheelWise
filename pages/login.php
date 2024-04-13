@@ -3,8 +3,6 @@
 
     include_once $_SERVER['DOCUMENT_ROOT'] . "/ameer/WheelWise/configs/config_main.php";
 
-    linkStyle('main', '../')
-
 ?>
 
 <!DOCTYPE html>

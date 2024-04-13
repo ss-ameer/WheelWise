@@ -28,14 +28,14 @@
     }
 
     // adds a specified style
-    function linkStyle($stylename, $extension = '') {
-        $dir = $extension . STYLES_DIR[$stylename];
+    function linkStyle($stylename) {
+        $dir = STYLES_DIR[$stylename];
         echo "<link rel=\"stylesheet\" href=\"{$dir}\">"; 
     };
 
-    function linkScript($scriptname, $extension = '') {
-        $dir = $extension . SCRIPTS_DIR[$scriptname];
-        echo "<script src=\"{$dir}></script>\"";
+    function linkScript($scriptname) {
+        $dir = SCRIPTS_DIR[$scriptname];
+        echo "<script src=\"{$dir}\"></script>";
     }
 
     function debug($result='') {

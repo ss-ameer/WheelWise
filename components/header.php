@@ -22,18 +22,22 @@
     function nav_displayItem($name, $link) {
         $replace = '_';
         $replacement = ' ';
-        return "<li><a href='{$link}'>" . ucwords(str_replace($replace, $replacement, $name)) . "</a></li>";
+        
+        return 
+        "<li class='nav-item active'>
+            <a class='nav-link' href='{$link}'>" . ucwords(str_replace($replace, $replacement, $name)) . "</a>
+        </li>"; 
     }
 
-    linkStyle('bootstrap', '../');
-    linkStyle('main', '../');
+    linkStyle('bootstrap');
+    linkStyle('main');
 
 ?>
 
 <h1><?= MAIN_TITLE; ?></h1>
 
-<nav>
-    <ul>
+<nav class='navbar navbar-expand-lg bg-light'>
+    <ul class='navbar-nav'>
 
         <?php foreach (NAV_ITEMS as $nav_type => $nav_item): ?>
 

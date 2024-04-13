@@ -1,5 +1,5 @@
 <!-- footer.php -->
 <?php
-    linkScript('bootstrap', '../');
+    linkScript('bootstrap');
 ?>
 <!-- /footer.php -->

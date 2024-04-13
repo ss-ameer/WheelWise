@@ -3,8 +3,6 @@
 
    include_once $_SERVER['DOCUMENT_ROOT'] . "/ameer/WheelWise/configs/config_main.php";
 
-   linkStyle('main', '../');
-
 ?> 
 
  <!DOCTYPE html>
@@ -40,9 +38,9 @@
             </div>
             <div>
                <input type="radio" name="signup_gender" id="gender-male" value="male">
-               <label for="gender">Male</label>
+               <label for="gender-male">Male</label>
                <input type="radio" name="signup_gender" id="gender-female" value="female">
-               <label for="gender">Female</label>
+               <label for="gender-female">Female</label>
             </div>
             <div>
                <input name='signup_password' type='password' placeholder='Password'>

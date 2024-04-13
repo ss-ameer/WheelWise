@@ -28,7 +28,7 @@
         </section>
     </main>
     <footer>
-        
+        <?php addComponent('footer'); ?>
     </footer>
 </body>
 </html>

@@ -14,8 +14,8 @@
         'components' => BASE_PATH . 'components/',
         'configs' => BASE_URL . 'configs/',
         'pages' => BASE_URL . 'pages/',
-        'styles' => 'styles/',
-        'scripts' => 'scripts/',
+        'styles' => BASE_URL . 'styles/',
+        'scripts' => BASE_URL . 'scripts/',
 
     ]);
 
@@ -23,7 +23,7 @@
     define('PAGES_DIR', 
     [
 
-        'home' => BASE_URL . '/index.php',
+        'home' => BASE_URL . 'index.php',
         'login' => DIR_PREFIX['pages'] . 'login.php',
         'signup' => DIR_PREFIX['pages'] . 'signup.php',
         'profile' => DIR_PREFIX['pages'] . 'profile.php',
