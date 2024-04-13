@@ -17,17 +17,17 @@
       <?php addComponent('header') ?>
    </header>
 
-   <main>
-      <section>
-         <form action='../configs/handle_signup.php' name='signup' method='POST'>
-            <div>
-               <input name='signup_email' type='email' placeholder='Email'>
+   <main class="container">
+      <section class="container bg-danger">
+         <form class="row" action='../configs/handle_signup.php' name='signup' method='POST'>
+            <div class="col">
+               <input class="form-control" name='signup_name-user' type='text' placeholder='Username'/>
+               <input class="form-control" name='signup_email' type='email' placeholder='Email'>
             </div>
-            <div>
-               <input name='signup_name-user' type='text' placeholder='Username'/>
-               <input name='signup_name-first' type='text' placeholder='First Name'/>
-               <input name='signup_name-last' type='text' placeholder='Last Name'/>
-               <input name='signup_name-middle' type='text' placeholder='Surname'/> 
+            <div class="col-auto">
+               <input class="form-control" name='signup_name-first' type='text' placeholder='First Name'/>
+               <input class="form-control" name='signup_name-last' type='text' placeholder='Last Name'/>
+               <input class="form-control" name='signup_name-middle' type='text' placeholder='Surname'/>
             </div>
             <div>
                <input name='signup_address-province' type="text" placeholder="Province">
