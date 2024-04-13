@@ -28,10 +28,15 @@
     }
 
     // adds a specified style
-    function linkStyle($style_name, $extension = '') {
-        $dir = $extension . STYLES_DIR[$style_name];
+    function linkStyle($stylename, $extension = '') {
+        $dir = $extension . STYLES_DIR[$stylename];
         echo "<link rel=\"stylesheet\" href=\"{$dir}\">"; 
     };
+
+    function linkScript($scriptname, $extension = '') {
+        $dir = $extension . SCRIPTS_DIR[$scriptname];
+        echo "<script src=\"{$dir}></script>\"";
+    }
 
     function debug($result='') {
         switch ($result) {
@@ -52,7 +57,6 @@
             empty($email) || 
             empty($firstname) || 
             empty($lastname) || 
-            empty($middlename) ||
             empty($province) ||
             empty($municipality) || 
             empty($dateofbirth) || 
@@ -76,6 +80,7 @@
         return $errorType;
     }
 
+    // used to retrieve an error message based on the error type.
     function inputErrorMessage ($errormessage) {
         if (array_key_exists($errormessage, ERROR_MESSAGES)) {
                 return ERROR_MESSAGES[$errormessage]; }

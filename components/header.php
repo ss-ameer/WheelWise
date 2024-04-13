@@ -1,7 +1,10 @@
 <!-- header.php -->
 <?php
-    $sql_connection = mysqli_connect('localhost', 'root', '', 'wheelwise_db');
 
+    linkStyle('bootstrap', '../');
+    linkStyle('main', '../');
+
+    $sql_connection = mysqli_connect('localhost', 'root', '', 'wheelwise_db');
     $tableName = 'users';
 
     // navigation
@@ -20,6 +23,7 @@
         ]
     ]);
 ?>
+
 
 <h1><?= MAIN_TITLE; ?></h1>
 <nav>

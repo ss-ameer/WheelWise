@@ -5,8 +5,7 @@
         $errorType = 'none';
 
         if(empty($username) || empty($password)) {
-            $errorType = 'emptyfield';
-        } else { $errorType = 'unknown';}
+            $errorType = 'emptyfield'; }
 
         return $errorType;
     }

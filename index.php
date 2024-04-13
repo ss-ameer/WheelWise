@@ -3,8 +3,6 @@
 
     require_once $_SERVER['DOCUMENT_ROOT'] . '/ameer/WheelWise/configs/config_main.php';
 
-    linkStyle('main');
-
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +25,7 @@
     <footer>
         <?php addComponent('footer') ?>
     </footer>
-
+    <script src='styles/bootstrap-5.3.3-dist/js/bootstrap.bundle.js'></script>
 </body>
 </html>
 <!-- /index.php -->

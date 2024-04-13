@@ -14,7 +14,8 @@
         'components' => BASE_PATH . 'components/',
         'configs' => BASE_URL . 'configs/',
         'pages' => BASE_URL . 'pages/',
-        'styles' => 'styles/'
+        'styles' => 'styles/',
+        'scripts' => 'scripts/',
 
     ]);
 
@@ -46,7 +47,15 @@
     define('STYLES_DIR', 
     [
 
-        'main' => DIR_PREFIX['styles'] . 'style.css'
+        'main' => DIR_PREFIX['styles'] . 'style.css',
+        'bootstrap' => DIR_PREFIX['styles'] . 'bootstrap-5.3.3-dist/css/bootstrap.css',
+
+    ]);
+
+    define('SCRIPTS_DIR', 
+    [
+
+        'bootstrap' => DIR_PREFIX['styles'] . 'bootstrap-5.3.3-dist/js/bootstrap.bundle.js',
 
     ]);
 
