@@ -48,38 +48,6 @@
             break; }
     }
 
-    // checks the input data in the signup page
-    function inputCheckSignUp( $connection, $username, $email, $firstname, $lastname, $middlename, $province, $municipality, $dateofbirth, $gender, $password, $passwordrepeat) {
-
-        $errorType = 'none';
-
-        if( empty($username) || 
-            empty($email) || 
-            empty($firstname) || 
-            empty($lastname) || 
-            empty($province) ||
-            empty($municipality) || 
-            empty($dateofbirth) || 
-            empty($gender) || 
-            empty($password) || 
-            empty($passwordrepeat)) {
-            $errorType = 'emptyfield'; }
-
-        else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-            $errorType = 'invalidusername'; }
-
-        else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errorType = 'invalidemail'; }
-
-        else if ($password !== $passwordrepeat) {
-            $errorType = 'passworddoesnotmatch'; }
-
-        else if (sql_userIdCheck($connection, 'users', $username, $email) === false) {
-            $errorType = 'useridexists'; }
-
-        return $errorType;
-    }
-
     // used to retrieve an error message based on the error type.
     function inputErrorMessage ($errormessage) {
         if (array_key_exists($errormessage, ERROR_MESSAGES)) {
