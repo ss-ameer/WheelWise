@@ -16,9 +16,9 @@
     <header>
         <?php addComponent('header') ?>
     </header>
-    <main class="container bg-info">
-        <div class="row p-3">
-            <section class="col-6 p-2 rounded bg-light">
+    <main class="container-md border bg-info ">
+        <div class="row">
+            <section class="col-6 rounded bg-light">
                 <ul>
                     <li><?= session_getInfo('name') ?></li>
                     <li><?= session_getInfo('full') ?></li>
@@ -31,7 +31,15 @@
                 tangina mo gago
             </section>
         </div>
-        
+        <br>
+        <div class="row g-4 bg-light">
+            <div class="col bg-warning">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non officia, natus illo eligendi perspiciatis distinctio nihil aut provident debitis totam.
+            </div>
+            <div class="col bg-danger">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non officia, natus illo eligendi perspiciatis distinctio nihil aut provident debitis totam.
+            </div>
+        </div>
     </main>
     <footer>
         <?php addComponent('footer'); ?>

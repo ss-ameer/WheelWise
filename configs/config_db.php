@@ -16,34 +16,53 @@
         } else { echo 'Connection successful'; }
     }
 
-    // checks if a user's username or email address is already in use in a database.
-    function sql_userIdCheck($connection,  $tablename, $username, $email, $returntype = 'bool') {
-        $sql = "SELECT * FROM $tablename WHERE user_name = ? OR user_email = ?;";
+    function sql_userGetAll($connection) {
+        $sql = "SELECT * FROM users;";
+      
         $stmt = mysqli_stmt_init($connection);
-
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            return false; } 
+          return false;
+        }
 
-        mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+        // Execute the statement (no need for data binding in this case)
         mysqli_stmt_execute($stmt);
 
         $resultData = mysqli_stmt_get_result($stmt);
+        $usersData = array();
 
-        if ($row = mysqli_fetch_assoc($resultData)) {
-            if ($returntype == 'array') {
-                return $row;
-            } else return false;
+        while ($row = mysqli_fetch_assoc($resultData)) {
+          $usersData[] = $row;
         }
-
+      
         mysqli_stmt_close($stmt);
-    }
+        mysqli_free_result($resultData);
+      
+        return $usersData;
+      }
+      
+      function sql_userCheck($connection, $username, $email, $returntype = 'bool') {
+        $allUsers = sql_userGetAll($connection);
+      
+        // search within the retrieved user data
+        foreach ($allUsers as $user) {
+          if ($user['user_name'] === $username || $user['user_email'] === $email) {
+            if ($returntype == 'array') {
+              return $user;
+            } else {
+              return true; // user found
+            }
+          }
+        }
+      
+        return false; // user not found
+      }
 
     // creates a new user in a database.
     function sql_createUser(
-        $connection, $tablename, $username, $email, $firstname, $lastname, $middlename, $province, $municipality, $dateofbirth, $gender, $password) 
+        $connection, $username, $email, $firstname, $lastname, $middlename, $province, $municipality, $dateofbirth, $gender, $password) 
 
         {
-            $sql = "INSERT INTO $tablename (
+            $sql = "INSERT INTO users (
                 user_name, user_email,
                 user_name_first,
                 user_name_last,
@@ -72,7 +91,7 @@
     // checks if a user's login credentials are valid.
     function sql_loginUser( $connection, $tablename, $userid, $password) 
         {
-            $idCheck = sql_userIdCheck($connection, $tablename, $userid, $userid, 'array');
+            $idCheck = sql_userCheck($connection, $userid, $userid, 'array');
 
             if ($idCheck == false) {
                 header("Location: " . addPage('login') . "?error=wronguid");
@@ -89,16 +108,6 @@
                 header("Location: " . addPage('home')); }
         }
 
-        // checks if the user's session is still valid.
-        function sql_sessionValidityCheck($connection, $tablename) {
-            if (isset($_SESSION['user_id'])) {
-                $idCheck = sql_userIdCheck($connection, $tablename, $_SESSION['user_name'], $_SESSION['user_name'], 'array');
-                
-                if ($idCheck && $_SESSION['user_id'] === $idCheck["user_id"] && password_verify($_SESSION['user_password'], $idCheck['user_password'])) {
-                    return true; }
-
-            } else { return false; }
-        }
-
+        
 ?>
 <!-- /config_db.php -->

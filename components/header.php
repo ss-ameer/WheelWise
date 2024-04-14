@@ -30,7 +30,7 @@
     }
 
     linkStyle('bootstrap');
-    linkStyle('main');
+    // linkStyle('main');
 
 ?>
 
@@ -64,7 +64,7 @@
 
 <?php
 
-  if (sql_sessionValidityCheck($sql_connection, $tableName)) {
+  if (session_userCheck($sql_connection)) {
     header('Location: ' . addPage('handle_logout')); } 
 
 ?>

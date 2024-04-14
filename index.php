@@ -19,7 +19,12 @@
     </header>
 
     <main class = 'container'>
-        
+    
+        <?php foreach(sql_userGetAll($sql_connection) as $row){
+            foreach($row as $key => $data){
+                echo "$data <br>";
+            } echo "<br>";
+        }; ?>
     </main>
 
     <footer>
