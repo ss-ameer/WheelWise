@@ -25,6 +25,7 @@
                     <li><?= session_getInfo('age') ?></li>
                     <li><?= session_getInfo('province') ?></li>
                     <li><?= session_getInfo('municipality') ?></li>
+                    <li><?= session_getInfo('type') ?></li>
                 </ul>
             </section>
             <section class="col-3 rounded bg-dark">

@@ -3,6 +3,9 @@
     session_start();
 
     function session_setUser($array) {
+
+        if($array['user_type'] === 1 ? $array['user_type'] = 'admin' : $array['user_type'] = 'regular');
+
         $_SESSION["user_id"] = $array['user_id'];
         $_SESSION["user_name"] = $array['user_name'];
         $_SESSION["user_nameFirst"] = $array['user_name_first'];
@@ -13,6 +16,7 @@
         $_SESSION["user_dateOfBirth"] = $array['user_date_of_birth'];
         $_SESSION["user_gender"] = $array['user_gender'];
         $_SESSION["user_password"] = $array['user_password'];
+        $_SESSION["user_type"] = $array['user_type'];
     }
 
     function session_getInfo($infoname) {
@@ -45,6 +49,9 @@
                 break;
             case 'gender':
                 $info = $_SESSION["user_gender"];
+                break;
+            case 'type':
+                $info = $_SESSION["user_type"];
                 break;
             
             case 'age':
