@@ -29,7 +29,7 @@
         else if ($password !== $passwordrepeat) {
             $errorType = 'passworddoesnotmatch'; }
 
-        else if (sql_userCheckId($connection, $username, $email) !== false) {
+        else if (sql_userCheckId($connection, $username, $email !== false)) {
             $errorType = 'useridexists'; }
 
         else { $errorType = 'none'; }
@@ -39,7 +39,7 @@
 
     if (isset($_POST['signup_submit'])) {
 
-        $nameUser = $_POST["signup_name-user"];
+        $nameUser = $_POST['signup_name-user'];
         $nameFirst = ucwords($_POST['signup_name-first']);
         $nameLast = ucwords($_POST['signup_name-last']);
         $nameMiddle = ucwords($_POST['signup_name-middle']);
@@ -52,7 +52,7 @@
         $passwordRepeat = $_POST["signup_password-repeat"];
 
         $result = signup_inputCheck(
-            $sql_connection,
+            $GLOBALS['sql_connection'],
             $nameUser, 
             $email, 
             $nameFirst, 

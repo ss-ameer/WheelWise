@@ -53,8 +53,12 @@
 
       foreach ($users as $user) {
         if ($user['user_name'] === $username || $user['user_email'] === $email) {
-            return $user['user_id'];
-        } else { return true; }}}
+            return $user['user_id'];}
+        }
+      
+      return false;
+        
+      }
 
   // creates a new user in a database.
   function sql_createUser(
