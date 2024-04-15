@@ -36,6 +36,7 @@
     [
 
         'handle_login' => DIR_PREFIX['configs'] . 'handle_login.php',
+        'handle_search' => DIR_PREFIX['configs'] . 'handle_search.php',
         'handle_signup' => DIR_PREFIX['configs'] . 'handle_signup.php',
         'handle_logout' => DIR_PREFIX['configs'] . 'handle_logout.php',
         'config_db' => DIR_PREFIX['configs'] . 'config_db.php',

@@ -33,8 +33,8 @@
 
 <h1><?= MAIN_TITLE; ?></h1>
 
-<nav class='navbar navbar-expand-lg bg-light'>
-    <ul class='navbar-nav'>
+<nav class='navbar d-flex justify-content-between w-100 bg-warning navbar-expand-lg'>
+    <ul class='navbar-nav ms-5 bg-danger'>
 
         <?php foreach (NAV_ITEMS as $nav_type => $nav_item): ?>
 
@@ -58,10 +58,11 @@
 
     </ul>
 
-    <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+    <form class="d-flex bg-primary me-5 column-gap-3" name="search" action="<?= addConfig('handle_search'); ?>" method="POST">
+        <input type="text" name="search_input" class="form-control" type="search" placeholder="Search">
+        <button class="btn btn-outline-success" type="submit" name="search_submit">Search</button>
     </form>
+    
 </nav>
 
 <?php
