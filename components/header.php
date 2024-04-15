@@ -1,9 +1,6 @@
 <!-- header.php -->
 <?php
 
-    $sql_connection = mysqli_connect('localhost', 'root', '', 'wheelwise_db');
-    $tableName = 'users';
-
     define('NAV_ITEMS', [
         'default' => [
                 'home' => addPage('home'),
@@ -64,7 +61,7 @@
 
 <?php
 
-  if (session_userCheck($sql_connection)) {
+  if (session_userCheck($GLOBALS['sql_connection'])) {
     header('Location: ' . addPage('handle_logout')); } 
 
 ?>
