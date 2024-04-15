@@ -29,7 +29,7 @@
         else if ($password !== $passwordrepeat) {
             $errorType = 'passworddoesnotmatch'; }
 
-        else if (sql_userCheck($connection, $username, $email) !== false) {
+        else if (sql_userCheckId($connection, $username, $email) !== false) {
             $errorType = 'useridexists'; }
 
         else { $errorType = 'none'; }

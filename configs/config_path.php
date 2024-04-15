@@ -64,7 +64,8 @@
     [
 
         'header' => DIR_PREFIX['components'] .'header.php',
-        'footer' => DIR_PREFIX['components'] .'footer.php'
+        'footer' => DIR_PREFIX['components'] .'footer.php',
+        'card_userInfo' => DIR_PREFIX['components'] .'card_userInfo.php',
 
     ]);
 

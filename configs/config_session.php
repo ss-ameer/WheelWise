@@ -77,9 +77,10 @@
     // checks if the user's session is still valid.
     function session_userCheck($connection) {
         if (isset($_SESSION['user_id'])) {
-            $idCheck = sql_userCheck($connection, $_SESSION['user_name'], $_SESSION['user_name'], 'array');
-            
-            if ($idCheck && $_SESSION['user_id'] === $idCheck["user_id"] && password_verify($_SESSION['user_password'], $idCheck['user_password'])) {
+            $idCheck = sql_userCheckId($connection, $_SESSION['user_name'], $_SESSION['user_name']);
+            $user = sql_userGet($GLOBALS['sql_connection'], $idCheck);
+
+            if ($idCheck && $_SESSION['user_id'] === $idCheck && password_verify($_SESSION['user_password'], $user['user_password'])) {
                 return true; }
 
         } else { return false; }
