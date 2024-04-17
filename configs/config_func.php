@@ -28,8 +28,8 @@
     }
 
     // adds a specified style
-    function linkStyle($stylename) {
-        $dir = STYLES_DIR[$stylename];
+    function linkSC($name, $type='style') {
+        $dir = $type == 'style' ? STYLES_DIR[$name] : ASSETS_DIR[$name];
         echo "<link rel=\"stylesheet\" href=\"{$dir}\">"; 
     };
 

@@ -26,7 +26,8 @@
         </li>"; 
     }
 
-    linkStyle('bootstrap');
+    linkSC('bootstrap');
+    linkSC('icon', 'asset')
     // linkStyle('main');
 
 ?>
@@ -64,12 +65,18 @@
                 </li>
     
             </ul>
-    
-            <form class="d-flex my-auto bg-primary" name="search" action="<?= addConfig('handle_search'); ?>" method="POST">
-                <input class="form-control me-2" type="search" placeholder="Search" name="search_input" id="search_input" >
-            </form>
-            <i class="bi bi-search"></i>
-            <!-- <div id="search_displayResults"></div> -->
+            <div>
+                <form class="d-flex my-auto bg-primary" name="search" action="<?= addConfig('handle_search'); ?>" method="POST">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        <input class="form-control" type="search" placeholder="Search" name="search_input" id="search_input" autocomplete="off">
+                    </div>
+                </form>
+                <!-- search results display -->
+                <div class="d-flex justify-content-end" id="search_displayResults">
+                    <!-- <p class="bg-primary">debug</p> -->
+                </div>
+            </div>
         </div>
     </div>
 </nav>

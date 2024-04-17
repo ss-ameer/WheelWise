@@ -31,24 +31,19 @@
     foreach ($users as $user) {
       $userLowerName = strtolower($user['user_name']);
       $userLowerEmail = strtolower($user['user_email']);
-    
-      if (strpos($userLowerName, $searchInputLower) !== false ||
-          strpos($userLowerEmail, $searchInputLower) !== false) {
-        $searchResults[] = $user;
-      }
-    }
+
+      if (strpos($userLowerName, $searchInputLower) !== false || strpos($userLowerEmail, $searchInputLower) !== false) {
+      $searchResults[] = $user; }}
     
     if (!empty($searchResults)) {
-      echo "Search Results:";
-      echo "<ul>";
+      // echo "Search Results:";
+      echo "<ul class='list-group mt-1 z-3 position-absolute shadow-none bg-warning'>";
       foreach ($searchResults as $user) {
         $user_name = $user['user_name'];
         $user_id = $user['user_id'];
-        echo "<li><a href='" . addPage('profile') . "?id=$user_id'>$user_name</a></li>";
+        echo "<li class='list-group-item w-100 '><a href='" . addPage('profile') . "?id=$user_id'>$user_name</a></li>";
       }
       echo "</ul>";
-    } else {
-      echo "No results found for '$searchInput'";
-    }
+    } else { echo "No results found for '$searchInput'"; }
 ?>
 <!-- /handle_search.php -->

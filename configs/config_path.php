@@ -16,6 +16,7 @@
         'pages' => BASE_URL . 'pages/',
         'styles' => BASE_URL . 'styles/',
         'scripts' => BASE_URL . 'scripts/',
+        'assets' => BASE_URL . 'assets/',
 
     ]);
 
@@ -57,6 +58,13 @@
     [
 
         'bootstrap' => DIR_PREFIX['styles'] . 'bootstrap-5.3.3-dist/js/bootstrap.bundle.js',
+
+    ]);
+
+    define('ASSETS_DIR', 
+    [
+
+        'icon' => DIR_PREFIX['assets'] . 'icons/bootstrap-icons-1.11.3/font/bootstrap-icons.css',
 
     ]);
 
