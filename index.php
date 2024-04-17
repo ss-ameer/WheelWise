@@ -26,7 +26,9 @@
             } echo "<br>";
         }; ?>
 
-        <div id="resultArea"></div>
+        <div id="resultArea">
+
+        </div>
     </main>
 
     <footer>

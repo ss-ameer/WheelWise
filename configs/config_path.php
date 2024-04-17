@@ -28,7 +28,8 @@
         'login' => DIR_PREFIX['pages'] . 'login.php',
         'signup' => DIR_PREFIX['pages'] . 'signup.php',
         'profile' => DIR_PREFIX['pages'] . 'profile.php',
-        'contact_us' => DIR_PREFIX['pages'] . 'contact_us.php'
+        'contact_us' => DIR_PREFIX['pages'] . 'contact_us.php',
+        'message' => DIR_PREFIX['pages'] . 'message.php'
         
     ]);
 
@@ -40,8 +41,11 @@
         'handle_search' => DIR_PREFIX['configs'] . 'handle_search.php',
         'handle_signup' => DIR_PREFIX['configs'] . 'handle_signup.php',
         'handle_logout' => DIR_PREFIX['configs'] . 'handle_logout.php',
+        'handle_message' => DIR_PREFIX['configs'] . 'handle_message.php',
+        
         'config_db' => DIR_PREFIX['configs'] . 'config_db.php',
         'config_func' => DIR_PREFIX['configs'] . 'config_func.php',
+        'config_message' => DIR_PREFIX['configs'] . 'config_message.php',
 
     ]);
 
