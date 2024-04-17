@@ -1,7 +1,7 @@
 <!-- card_userInfo.php -->
 <?php 
     
-    $user = sql_userGet ($GLOBALS['sql_connection'], $_SESSION['user_id']);
+    $user = sql_userGet ($GLOBALS['sql_connection'], $_GET['id']);
 
 ?>
 <div class="card">

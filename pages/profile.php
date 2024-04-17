@@ -2,6 +2,7 @@
 <?php
 
     require_once $_SERVER['DOCUMENT_ROOT'] . '/ameer/WheelWise/configs/config_main.php';
+    $user = sql_userGet ($GLOBALS['sql_connection'], $_GET['id']);
 
     // foreach ($_SESSION as $key => $value) { echo '<br>' . $key . ': ' . $value; }
 
@@ -30,17 +31,22 @@
             </div>
 
             <div class="col bg-dark">
-                <div class="row">
-                    <?php addComponent('card_userInfo') ?>
-                    <div class="card">
-                        <div class="card-header">
-                            Bio:
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit iusto id magnam sequi ad quae tenetur sit nemo quidem magni?
-                            </p>
-                        </div>
+                <div class="card">
+                    <div class="card-body">
+                        <?php $surname = $user['user_name_middle'] !== '' ? $user['user_name_middle'] . ' ' : '' ?>
+                        <div class="fw-bold"><?= $user['user_name_first'] . ' ' . $surname . $user['user_name_last'] ?></div> 
+                        <?= $user['user_name'] ?>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Bio:
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit iusto id magnam sequi ad quae tenetur sit nemo quidem magni?
+                        </p>
                     </div>
                 </div>
             </div>

@@ -32,7 +32,7 @@
                $message = inputErrorMessage($_GET['error']);
             }
             
-            echo (ucfirst($message));
+        echo (ucfirst($message));
             
          }
 

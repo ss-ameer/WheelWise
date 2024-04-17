@@ -20,4 +20,6 @@
   ]);
 
 ?>
+
+<script src="<?= BASE_URL . 'scripts/jquery.js' ?>"></script>
 <!-- /config_main.php -->

@@ -56,14 +56,37 @@
 
         <?php endforeach; ?>
 
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+            </a>
+            <!-- <div id="search_displayResults"></div> -->
+        </li>
+        <div id="search_displayResults"></div>
     </ul>
 
-    <form class="d-flex bg-primary me-5 column-gap-3" name="search" action="<?= addConfig('handle_search'); ?>" method="POST">
-        <input type="text" name="search_input" class="form-control" type="search" placeholder="Search">
-        <button class="btn btn-outline-success" type="submit" name="search_submit">Search</button>
-    </form>
-    
+    <div>
+        <div class="row">
+            <form class="d-flex bg-primary me-5 column-gap-3" name="search" action="<?= addConfig('handle_search'); ?>" method="POST">
+                <input class="form-control" type="search" placeholder="Search" name="search_input" id="search_input" >
+                <button class="btn btn-outline-success" type="submit" name="search_submit">Search</button>
+            </form>
+        </div>
+    </div>
 </nav>
+
+<script>
+
+    // for live searching
+    $("#search_input").on('keyup', function(){
+    let searchInput = $(this).val();
+    
+    $.post('<?= addConfig('handle_search'); ?>', {searchInput:searchInput}, function(data){
+        $("#search_displayResults").html(data);
+    });
+    
+});
+</script>
 
 <?php
 

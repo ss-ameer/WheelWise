@@ -16,6 +16,7 @@
 
     <header>
         <?php addComponent('header') ?>
+        
     </header>
 
     <main class = 'container'>
@@ -25,12 +26,14 @@
                 echo "$data <br>";
             } echo "<br>";
         }; ?>
+
+        <div id="resultArea"></div>
     </main>
 
     <footer>
         <?php addComponent('footer'); ?>
     </footer>
-    
+   
 </body>
 </html>
 <!-- /index.php -->
