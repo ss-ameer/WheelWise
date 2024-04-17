@@ -31,61 +31,57 @@
 
 ?>
 
-<h1><?= MAIN_TITLE; ?></h1>
-
-<nav class='navbar d-flex justify-content-between w-100 bg-warning navbar-expand-lg'>
-    <ul class='navbar-nav ms-5 bg-danger'>
-
-        <?php foreach (NAV_ITEMS as $nav_type => $nav_item): ?>
-
-            <?php if ($nav_type === 'default'): ?>
-                <?php foreach ($nav_item as $nav_name => $nav_link): ?>
-                    <?= nav_displayItem($nav_name, $nav_link); ?>
+<nav class='navbar navbar-expand-lg bg-warning'>
+    <div class="container-fluid bg-danger">
+        <a href="#" class="navbar-brand"><?= MAIN_TITLE; ?></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class='navbar-nav me-auto mb-2 mb-lg-0 bg-danger'>
+                <?php foreach (NAV_ITEMS as $nav_type => $nav_item): ?>
+                    <?php if ($nav_type === 'default'): ?>
+                        <?php foreach ($nav_item as $nav_name => $nav_link): ?>
+                            <?= nav_displayItem($nav_name, $nav_link); ?>
+                        <?php endforeach; ?>
+    
+                    <?php elseif ($nav_type === 'logged_in' && isset($_SESSION['user_id'])): ?>
+                        <?php foreach ($nav_item as $nav_name => $nav_link): ?>
+                            <?= nav_displayItem($nav_name, $nav_link); ?>
+                        <?php endforeach; ?>
+    
+                    <?php elseif ($nav_type === 'logged_out' && !isset($_SESSION['user_id'])): ?>
+                        <?php foreach ($nav_item as $nav_name => $nav_link): ?>
+                            <?= nav_displayItem($nav_name, $nav_link); ?>
+                        <?php endforeach; ?>
+    
+                    <?php endif ?>
                 <?php endforeach; ?>
-
-            <?php elseif ($nav_type === 'logged_in' && isset($_SESSION['user_id'])): ?>
-                <?php foreach ($nav_item as $nav_name => $nav_link): ?>
-                    <?= nav_displayItem($nav_name, $nav_link); ?>
-                <?php endforeach; ?>
-
-            <?php elseif ($nav_type === 'logged_out' && !isset($_SESSION['user_id'])): ?>
-                <?php foreach ($nav_item as $nav_name => $nav_link): ?>
-                    <?= nav_displayItem($nav_name, $nav_link); ?>
-                <?php endforeach; ?>
-            <?php endif ?>
-
-        <?php endforeach; ?>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-            </a>
-            <!-- <div id="search_displayResults"></div> -->
-        </li>
-        <div id="search_displayResults"></div>
-    </ul>
-
-    <div>
-        <div class="row">
-            <form class="d-flex bg-primary me-5 column-gap-3" name="search" action="<?= addConfig('handle_search'); ?>" method="POST">
-                <input class="form-control" type="search" placeholder="Search" name="search_input" id="search_input" >
-                <button class="btn btn-outline-success" type="submit" name="search_submit">Search</button>
+    
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                    <!-- <div id="search_displayResults"></div> -->
+                </li>
+    
+            </ul>
+    
+            <form class="d-flex my-auto bg-primary" name="search" action="<?= addConfig('handle_search'); ?>" method="POST">
+                <input class="form-control me-2" type="search" placeholder="Search" name="search_input" id="search_input" >
             </form>
+            <i class="bi bi-search"></i>
+            <!-- <div id="search_displayResults"></div> -->
         </div>
     </div>
 </nav>
 
 <script>
-
     // for live searching
     $("#search_input").on('keyup', function(){
     let searchInput = $(this).val();
     
     $.post('<?= addConfig('handle_search'); ?>', {searchInput:searchInput}, function(data){
         $("#search_displayResults").html(data);
-    });
-    
-});
+    }); });
 </script>
 
 <?php

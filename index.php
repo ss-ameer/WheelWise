@@ -16,7 +16,6 @@
 
     <header>
         <?php addComponent('header') ?>
-        
     </header>
 
     <main class = 'container'>
