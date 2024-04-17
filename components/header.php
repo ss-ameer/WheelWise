@@ -12,7 +12,7 @@
             ],
             'logged_out' => [
                 'signup' => addPage('signup'),
-                'login' => addPage('login'),
+                'login' => addPage('login')
             ]
         ]);
     
