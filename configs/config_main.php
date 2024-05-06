@@ -6,6 +6,8 @@
   require_once 'config_func.php';
   require_once 'config_session.php';
   require_once 'config_login.php';
+  require_once 'config_message.php';
+
   
   define('MAIN_TITLE', 'Wheelwise');
   define('ERROR_MESSAGES', 
